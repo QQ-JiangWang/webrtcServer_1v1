@@ -1,0 +1,17 @@
+{
+	"name": "SkyRTC-demo",
+	"description": "A simple SkyRTC demo",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"fs": "0.0.1-security",
+		"http": "0.0.0",
+		"https": "^1.0.0",
+		"log4js": "^6.1.0",
+		"serve-index": "^1.9.1",
+		"socket.io": "^2.3.0"
+	}
+}
