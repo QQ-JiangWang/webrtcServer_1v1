@@ -13,9 +13,9 @@ var shareDeskBox  = document.querySelector('input#shareDesk');
 
 var pcConfig = {
   'iceServers': [{
-    'urls': 'turn:stun.al.learningrtc.cn:3478',
-    'credential': "mypasswd",
-    'username': "garrylea"
+    'urls': 'turn:stun.47.113.82.231:3478',
+    'credential': "ddssingsong",
+    'username': "123456"
   }]
 };
 
@@ -29,7 +29,8 @@ var socket = null;
 
 var offerdesc = null;
 var state = 'init';
-
+var video = false;
+var audio = false;
 // 以下代码是从网上找的
 //=========================================================================================
 
@@ -209,6 +210,8 @@ function conn(){
 
 
 	roomid = getQueryVariable('room');
+	video = getQueryVariable('video');
+	audio = getQueryVariable('audio');
 	socket.emit('join', roomid);
 
 	return true;
@@ -291,13 +294,17 @@ function start(){
 			}
 
 		}else{
-			constraints = {
-				video: true,
-				audio:  {
+			var valueAudio = false;
+			if (audio){
+				valueAudio = {
 					echoCancellation: true,
-					noiseSuppression: true,
-					autoGainControl: true
+						noiseSuppression: true,
+						autoGainControl: true
 				}
+			}
+			constraints = {
+				video: video,
+				audio:  valueAudio
 			}
 		}
 
