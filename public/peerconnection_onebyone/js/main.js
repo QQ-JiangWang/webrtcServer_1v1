@@ -210,8 +210,6 @@ function conn(){
 
 
 	roomid = getQueryVariable('room');
-	video = getQueryVariable('video');
-	audio = getQueryVariable('audio');
 	socket.emit('join', roomid);
 
 	return true;
@@ -273,7 +271,8 @@ function shareDesk(){
 }
 
 function start(){
-
+	video = getQueryVariable('video');
+	audio = getQueryVariable('audio');
 	if(!navigator.mediaDevices ||
 		!navigator.mediaDevices.getUserMedia){
 		console.error('the getUserMedia is not supported!');
